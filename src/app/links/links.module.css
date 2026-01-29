@@ -1,0 +1,296 @@
+.container {
+    min-height: 100vh;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.socialRow {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.socialIcon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.socialIcon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transform: translateY(-2px);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+}
+
+.tagline {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    margin-bottom: 12px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+}
+
+/* Mobile: stacked */
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    /* Permanent glow on mobile */
+    .card {
+        border-color: var(--glass-border-hover);
+    }
+
+    .cardVendas {
+        box-shadow: 0 5px 20px var(--glow-gold);
+    }
+
+    .cardDiscord {
+        box-shadow: 0 5px 20px var(--glow-blue);
+    }
+
+    .cardYoutube {
+        box-shadow: 0 5px 20px var(--glow-red);
+    }
+
+    /* Keep CTA visible/active on mobile */
+    .cta {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+    }
+}
+
+/* Desktop: 2 columns, 3rd breaks */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card:last-child {
+        grid-column: span 2;
+        max-width: calc(50% - 12px);
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+.card {
+    position: relative;
+    height: 200px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--glass-border-hover);
+}
+
+.cardVendas:hover {
+    box-shadow: 0 10px 30px var(--glow-gold);
+}
+
+.cardDisabled {
+    filter: grayscale(1) opacity(0.5);
+    cursor: default;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.cardDisabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.cardDiscord:hover {
+    box-shadow: 0 10px 30px var(--glow-blue);
+}
+
+.cardYoutube:hover {
+    box-shadow: 0 10px 30px var(--glow-red);
+}
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .banner {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+
+.cardContent {
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.badgeVendas {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--accent-gold);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.badgeDiscord {
+    background: rgba(88, 101, 242, 0.2);
+    color: var(--accent-blue);
+    border: 1px solid rgba(88, 101, 242, 0.3);
+}
+
+.badgeYoutube {
+    background: rgba(255, 0, 43, 0.2);
+    color: var(--accent-red);
+    border: 1px solid rgba(255, 0, 43, 0.3);
+}
+
+.badgeEmBreve {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cardTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.cardSubtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.cta {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover .cta {
+    background: #fff;
+    color: #000;
+    transform: translateX(4px);
+}
+
+/* Mobile tap feedback */
+@media (max-width: 767px) {
+    .card:active {
+        transform: scale(0.96);
+        background: rgba(255, 255, 255, 0.08);
+        transition: transform 0.1s ease;
+    }
+
+    .card:active .banner {
+        transform: scale(0.98);
+        opacity: 0.7;
+    }
+}
+
+.footer {
+    margin-top: 60px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
