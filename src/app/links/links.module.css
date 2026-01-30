@@ -118,13 +118,6 @@
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .card:last-child {
-        grid-column: span 2;
-        max-width: calc(50% - 12px);
-        margin: 0 auto;
-        width: 100%;
-    }
 }
 
 .card {
@@ -293,4 +286,20 @@
     letter-spacing: 1px;
     position: relative;
     z-index: 1;
+}
+
+.youtubeSection {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.youtubeTitle {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.85);
 }

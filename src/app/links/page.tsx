@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./links.module.css";
 import Particles from "@/components/Particles";
+import YouTubeChannelHeader from "@/components/YouTubeChannelHeader";
+import YouTubeLatestRow from "@/components/YouTubeLatestRow";
 
 export const metadata: Metadata = {
     title: "Escola do Milhão — Central de Acesso",
@@ -79,28 +81,13 @@ export default function LinksPage() {
                     </div>
                 </a>
 
-                {/* Card 3 - YouTube */}
-                <a
-                    href="https://youtu.be/XvjW05uKf-k?si=TWsNo6EGY-OUA87Z"
-                    className={`${styles.card} ${styles.cardYoutube}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        src="/youtube.webp"
-                        alt="YouTube Channel"
-                        fill
-                        className={styles.banner}
-                    />
-                    <div className={styles.overlay}></div>
-                    <div className={styles.cardContent}>
-                        <span className={`${styles.badge} ${styles.badgeYoutube}`}>Vídeos</span>
-                    </div>
-                    <div className={styles.cta}>
-                        <ArrowIcon />
-                    </div>
-                </a>
             </div>
+
+            <section className={styles.youtubeSection}>
+                <YouTubeChannelHeader />
+                <h2 className={styles.youtubeTitle}>Últimos vídeos</h2>
+                <YouTubeLatestRow />
+            </section>
 
             <footer className={styles.footer}>
                 © {new Date().getFullYear()} Escola do Milhão. Todos os direitos reservados.
